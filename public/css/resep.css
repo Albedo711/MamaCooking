@@ -1,0 +1,166 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background-color: #f0f0f0;
+}
+header {
+    background: url(https://media.licdn.com/dms/image/D4E16AQFSnSXI8820qA/profile-displaybackgroundimage-shrink_200_800/0/1700891887591?e=2147483647&v=beta&t=IJX6DlaqOAE_Ze7ynhBiyJaOF1EZT21ho4-fZ3wBtaY);
+    background-size: cover;
+    color: black;
+    text-align: center;
+    padding: 20px 20px 80px;
+}
+h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-top: 80px;
+}
+.search {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.search input {
+    padding: 10px;
+    border: none;
+    width: 40%;
+    font-size: 15px;
+    outline: none;
+    border-radius: 20px;
+}
+.btn-profile{
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    width: 10%;
+    margin-left: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    background: black;
+    color: pink;
+    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
+}
+.btn-profile:hover{
+    background: pink;
+    color: black;
+}
+.search button {
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    width: 10%;
+    margin-left: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    background: black;
+    color: pink;
+    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
+}
+.search button:hover {
+    background: pink;
+    color: black;
+}
+.meal-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+.meal-item {
+    flex-basis: calc(25% - 20px);
+    max-width: calc(25% - 20px);
+    margin: 10px;
+    padding: 20px 20px 10px;
+    box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+    border-radius: 10px;
+}
+.meal-item img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.meal-item h3 {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+.btn-recipe {
+    border-radius: 20px;
+    padding: 5px;
+    cursor: pointer;
+    background-color: black;
+    color: pink;
+    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
+}
+
+.btn-recipe:hover {
+    background-color: pink;
+    color: black;
+}
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-width: 90%;
+    overflow: auto;
+    border-radius: 10px;
+}
+.modal-container .close-button {
+    font-size: 42px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+.modal-container .close-button:hover {
+    color: pink;
+}
+.meal-details-content {
+    overflow-y: auto;
+    max-height: 70vh;
+}
+.recipe-title {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.recipe-category {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.recipe-instruct h3 {
+    font-size: 16px;
+}
+.recipe-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
