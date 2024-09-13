@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -8,12 +7,14 @@
 body {
     background-color: #f0f0f0;
 }
+
 header {
     background: url(https://media.licdn.com/dms/image/D4E16AQFSnSXI8820qA/profile-displaybackgroundimage-shrink_200_800/0/1700891887591?e=2147483647&v=beta&t=IJX6DlaqOAE_Ze7ynhBiyJaOF1EZT21ho4-fZ3wBtaY);
     background-size: cover;
     color: black;
     text-align: center;
     padding: 20px 20px 80px;
+    position: relative;
 }
 h1 {
     font-size: 30px;
@@ -25,6 +26,7 @@ h1 {
     padding-top: 30px;
     display: flex;
     justify-content: center;
+    gap: 10px;
 }
 .search input {
     padding: 10px;
@@ -33,24 +35,6 @@ h1 {
     font-size: 15px;
     outline: none;
     border-radius: 20px;
-}
-.btn-profile{
-    padding: 10px 20px;
-    text-decoration: none;
-    border: none;
-    width: 10%;
-    margin-left: 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    background: black;
-    color: pink;
-    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
-}
-.btn-profile:hover{
-    background: pink;
-    color: black;
 }
 .search button {
     padding: 10px 20px;
@@ -105,10 +89,26 @@ h1 {
     color: pink;
     transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
 }
-
 .btn-recipe:hover {
     background-color: pink;
     color: black;
+}
+.login-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    border: none;
+    cursor: pointer;
+    background: none;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 70px;
+    height: 70px;
+}
+.login-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .modal-container {
     display: none;

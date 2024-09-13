@@ -12,6 +12,18 @@
 <div class="box">
     <span class="borderLine"></span>
 <form id="login" action="{{ route('login') }}" method="POST" >
+    
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
     @csrf
     <h2>Sign up</h2>
     <div class="input-box">

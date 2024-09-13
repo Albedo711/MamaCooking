@@ -5,6 +5,7 @@ use App\http\Controllers\AuthController;
 use App\http\Controllers\HomeController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +27,6 @@ Route::get('/home', function () {
 
 Route::get('/recipe', [HomeController::class, 'index'])->name('recipe');
 
-
 Route::get('/register',[AuthController::class, 'register'])->name('register');
 Route::post('/register',[AuthController::class, 'registerPost'])->name('register');
 
@@ -35,9 +35,7 @@ Route::post('/login',[AuthController::class, 'loginPost'])->name('login');
 
 
 Route::get('/profile', function () {
-    return view('profile',[
-        'nama'=>'suki',
-    ]);
+    return view('profile');
 });
 Route::get('/edit', function () {
     return view('edit');
