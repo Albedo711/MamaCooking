@@ -13,7 +13,7 @@
     
 <div class="box">
     <span class="borderLine"></span>
-<form id="register" action="{{ route('register') }}" method="POST" >
+<form id="register" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
     
 @if(session('success'))
     <div class="alert alert-success">
@@ -31,6 +31,12 @@
     <div class="input-box">
     <input type="text" name="name"  required>
     <span>Nama lengkap</span>
+    <i></i>
+    </div>
+
+    <div class="input-box">
+    <label>GAMBAR</label>
+    <input type="file" name="profile_photo" required>
     <i></i>
     </div>
 

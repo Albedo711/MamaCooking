@@ -60,21 +60,34 @@ h1 {
     justify-content: center;
     gap: 20px;
     margin: 20px;
-}
-.meal-item {
-    flex-basis: calc(25% - 20px);
-    max-width: calc(25% - 20px);
-    margin: 10px;
-    padding: 20px 20px 10px;
-    box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
-    border-radius: 10px;
-}
-.meal-item img {
-    width: 100%;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-}
+    }
+    .meal-item {
+      flex-basis: calc(25% - 20px);
+      max-width: calc(25% - 20px);
+      margin: 10px;
+      padding: 20px 20px 10px;
+      box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      
+    }
+    
+    .meal-item img {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      
+    }
+    .meal-item h5{
+        line-height: 1.6;
+        text-align: justify;
+        font-size: 16px;
+        color: #333;
+    }
 .meal-item h3 {
     text-align: center;
     margin: 10px 0;
@@ -110,6 +123,7 @@ h1 {
     height: 100%;
     object-fit: cover;
 }
+
 .modal-container {
     display: none;
     position: fixed;
@@ -123,8 +137,9 @@ h1 {
     max-width: 90%;
     overflow: auto;
     border-radius: 10px;
-}
-.modal-container .close-button {
+    }
+    
+    .modal-container .close-button {
     font-size: 42px;
     background: none;
     border: none;
@@ -134,33 +149,33 @@ h1 {
     text-align: right;
     margin-bottom: 16px;
     transition: all 0.3s ease;
-}
-.modal-container .close-button:hover {
+    }
+    .modal-container .close-button:hover {
     color: pink;
-}
-.meal-details-content {
+    }
+    .meal-details-content {
     overflow-y: auto;
     max-height: 70vh;
-}
-.recipe-title {
+    }
+    .recipe-title {
     font-size: 22px;
     font-weight: 600;
     text-align: center;
     margin-bottom: 5px;
-}
-.recipe-category {
+    }
+    .recipe-category {
     font-size: 18px;
     font-weight: 600;
     text-align: center;
     margin-bottom: 10px;
-}
-.recipe-instruct h3 {
+    }
+    .recipe-instruct h3 {
     font-size: 16px;
-}
-.recipe-image {
+    }
+    .recipe-image {
     width: 100%;
     max-height: 300px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 20px;
-}
+    }

@@ -25,7 +25,7 @@
     </div>
 @endif
     @csrf
-    <h2>Sign up</h2>
+    <h2>Sign in</h2>
     <div class="input-box">
     <input type="text" name="email"  required>
     <span>email</span>

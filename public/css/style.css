@@ -1,85 +1,98 @@
-:root{
-    --pink:pink;
+:root {
+    --pink: pink;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-html::-webkit-scrollbar{
+html::-webkit-scrollbar {
     width: 1rem;
 }
 
-html::-webkit-scrollbar-track{
-    background:black;
+html::-webkit-scrollbar-track {
+    background: black;
 }
 
-html::-webkit-scrollbar-thumb{
-    background:var(--pink);
+html::-webkit-scrollbar-thumb {
+    background: var(--pink);
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
-    font-family: 'poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #F8F4EC;
-  
 }
-.container{
-    max-width: 1200px;
+
+.container {
+    max-width: 1300px;
     width: 90%;
     margin: auto;
 }
- .row{
+
+.row {
     display: flex;
     flex-wrap: wrap;
- }
+}
 
-h1,h2,h3,h4,h5{
+h1, h2, h3, h4, h5 {
     margin: 0;
     padding: 0;
 }
-p{
+
+p {
     margin: 0;
-    
 }
-.header{
-    position: fixed; 
+
+.header {
+    position: fixed;
     top: 0;
     width: 100%;
-    height: 50px;
-    z-index: 1000; 
+    height: 70px;
+    z-index: 1000;
     background: #F8F4EC;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
- .nav-container{
+
+.nav-container {
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
+}
 
-    
- }
- .nav{
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
- }
- .nav .nav-brand h1 a{
+    margin-top: 10px;
+}
+
+.nav .nav-brand h1 a {
     text-decoration: none;
     color: black;
-    span{
-        color: pink;
-    }
- }
- .nav-menu a{
+}
+
+.nav .nav-brand h1 a span {
+    color: pink;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu a {
     text-decoration: none;
     color: black;
     padding: 10px;
- }
- .nav-menu a:hover{
+}
+
+.nav-menu a:hover {
     color: pink;
- }
-.btn{
+}
+
+.btn {
     background: black;
     color: pink;
     display: inline-block;
@@ -89,18 +102,22 @@ p{
     text-decoration: none;
     transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
 }
-.btn:hover{
+
+.btn:hover {
     background: pink;
     color: black;
 }
+
 .row {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.col{
+.col {
     flex: 1;
+    min-width: 300px;
 }
 
 .col-desc {
@@ -112,29 +129,35 @@ p{
 }
 
 .img-responsive {
-    
     max-width: 100%;
     height: auto;
     padding-left: 70px;
 }
-.hero{
-    padding: 5% 0;
+
+.hero {
+    padding: 0 auto;
+    margin-top: 100px;
+    padding-bottom: 50px;
 }
-.hero .hero-desc h1{
+
+.hero .hero-desc h1 {
     font-size: 3em;
     line-height: 120%;
     margin-bottom: 20px;
-    
 }
-.hero .hero-desc p{
-    line-height:180%;
+
+.hero .hero-desc p {
+    line-height: 180%;
 }
-span{
+
+span {
     color: pink;
 }
-.about{
+
+.about {
     background-color: #f9f9f9;
 }
+
 .about p {
     font-size: 1.1em;
     color: black;
@@ -142,25 +165,30 @@ span{
     margin-bottom: 20px;
     max-width: 800px;
     margin-left: auto;
+    text-align: justify;
     margin-right: auto;
 }
-.about h1{
+
+.about h1 {
     padding: 30px;
     font-size: 50px;
-}
-.about .row {
-    display: flex;
-    flex-direction: column; 
-}
-.about .col {
-    text-align: center; 
+    text-align: justify;
 }
 
-.img-responsive-about{
+.about .row {
+    display: flex;
+    flex-direction: column;
+}
+
+.about .col {
+    text-align: center;
+}
+
+.img-responsive-about {
     max-width: 100%;
     height: 320px;
-    width: auto; 
-    margin-top: 20px; 
+    width: auto;
+    margin-top: 10px;
 }
 
 .container-footer {
@@ -181,7 +209,8 @@ span{
     margin: 0 10px;
 }
 
-.footer-desc h3, .col4 h3 {
+.footer-desc h3,
+.col4 h3 {
     font-size: 1.5em;
     margin-bottom: 15px;
 }
@@ -206,5 +235,71 @@ ul li a {
 }
 
 ul li a:hover {
-    text-decoration: underline;
+    color: var(--pink);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .header{
+        height: 150px;
+    }
+    .container{
+        margin-top: 150px;
+    }
+
+    .hero .hero-desc h1 {
+        font-size: 2.5em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+
+    .col {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .col-desc {
+        padding: 0;
+        text-align: center;
+    }
+
+    .col-img {
+        padding-left: 0;
+    }
+
+    .img-responsive {
+        padding-left: 0;
+    }
+
+    .about h1 {
+        font-size: 36px;
+    }
+
+    .about p {
+        font-size: 1em;
+    }
+
+    .container-footer {
+        padding: 10%;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero .hero-desc h1 {
+        font-size: 2em;
+    }
+
+    .btn {
+        padding: 8px 16px;
+    }
+
+    .about h1 {
+        font-size: 30px;
+    }
 }

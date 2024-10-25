@@ -14,18 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const recipes = [
       {
           id: 0,
-          image: "https://i.pinimg.com/originals/18/d9/99/18d999d97240c26feb8475524bec0ec6.png",
+          image: "{{ asset('/storage/posts/'.$post->image) }}",
           title: "Nasi goreng",
           category: "Main Course",
           instructions: "1. Panaskan minyak di wajan. 2. Tumis bawang putih dan bawang merah hingga harum. 3. Masukkan nasi putih, aduk rata. 4. Tambahkan kecap manis, garam, dan merica. 5. Aduk hingga semua bahan tercampur sempurna. 6. Sajikan dengan irisan mentimun dan tomat."
       },
-      {
-          id: 1,
-          image: "https://tse3.mm.bing.net/th?id=OIP.wApDfF7uvb2wAcCy8UUHPwHaE8&pid=Api&P=0&h=220",
-          title: "Ayam goreng",
-          category: "Main Course",
-          instructions: "1. Lumuri ayam dengan bumbu halus. 2. Diamkan selama 30 menit agar bumbu meresap. 3. Panaskan minyak di wajan. 4. Goreng ayam hingga matang dan berwarna kecokelatan. 5. Angkat dan tiriskan. 6. Sajikan dengan nasi putih dan sambal."
-      }
+      
   ];
 
   function displayRecipes(recipesToDisplay) {
