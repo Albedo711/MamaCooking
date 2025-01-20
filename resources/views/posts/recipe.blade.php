@@ -66,44 +66,54 @@ document.addEventListener('DOMContentLoaded', function () {
     readMoreButtons.forEach(button => {
         button.addEventListener('click', function () {
             const mealItem = this.closest('.meal-item');
-            const recipeTitle = mealItem.querySelector('h3').textContent;
-            const recipeImage = mealItem.querySelector('img').src;
-            const recipeBahan = mealItem.getAttribute('data-bahan');
-            const recipeTutorial = mealItem.getAttribute('data-tutorial');
+            const recipeTitle = mealItem.querySelector('h3')?.textContent || 'Unknown Recipe';
+            const recipeImage = mealItem.querySelector('img')?.src || '';
+            const recipeBahan = mealItem.getAttribute('data-bahan') || '';
+            const recipeTutorial = mealItem.getAttribute('data-tutorial') || '';
 
             document.getElementById('recipeModalLabel').textContent = recipeTitle;
             document.getElementById('recipeImage').src = recipeImage;
 
+           
             const ingredientsElement = document.getElementById('recipeBahan');
-            ingredientsElement.innerHTML = ''; 
+            ingredientsElement.innerHTML = '';
             const sanitizedBahan = recipeBahan
-                .replace(/<\/?[^>]+(>|$)/g, "")
-                .replace(/&nbsp;/g, "")
+                .replace(/<\/?[^>]+(>|$)/g, "") 
+                .replace(/&nbsp;/g, " ") 
                 .trim();
 
-            const bahanArray = sanitizedBahan.split(',');
-            const bahanList = bahanArray.map((ingredient, index) => `<li>${index + 1}. ${ingredient.trim()}</li>`).join('');
-            ingredientsElement.innerHTML = `<ul>${bahanList}</ul>`;
+            if (sanitizedBahan) {
+                const bahanArray = sanitizedBahan.split('\n'); 
+                const bahanList = bahanArray.map((ingredient) => 
+                    `<li>${ingredient.trim()}</li>`
+                ).join('');
+                ingredientsElement.innerHTML = `<ul>${bahanList}</ul>`;
+            } else {
+                ingredientsElement.innerHTML = '<p>Tidak ada bahan tersedia.</p>';
+            }
 
+            
             const tutorialElement = document.getElementById('recipeTutorial');
-            tutorialElement.innerHTML = ''; 
-            const sanitizedTutorial = recipeTutorial.replace(/<\/?script[^>]*>/g, "").trim(); 
-            tutorialElement.innerHTML = sanitizedTutorial; 
+            tutorialElement.innerHTML = '';
+            const sanitizedTutorial = recipeTutorial
+                .replace(/<\/?script[^>]*>/g, "") 
+                .trim();
+            tutorialElement.innerHTML = sanitizedTutorial || '<p>Tidak ada tutorial tersedia.</p>';
 
             modal.show();
         });
     });
 
-   
+
     const searchButton = document.getElementById('searchButton');
     const searchInput = document.getElementById('searchInput');
 
-    searchButton.addEventListener('click', function() {
-        const query = searchInput.value.toLowerCase();
+    searchButton.addEventListener('click', function () {
+        const query = searchInput.value.toLowerCase().trim();
         const mealItems = document.querySelectorAll('.meal-item');
 
         mealItems.forEach(item => {
-            const title = item.querySelector('h3').textContent.toLowerCase();
+            const title = item.querySelector('h3')?.textContent.toLowerCase() || '';
             if (title.includes(query)) {
                 item.style.display = ''; 
             } else {
@@ -112,13 +122,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-   
-    searchInput.addEventListener('keypress', function(event) {
+    searchInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             searchButton.click();
         }
     });
 });
+
     </script>
 
 </body>

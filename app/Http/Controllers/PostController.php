@@ -33,15 +33,19 @@ public function resep(): View
      * @return View
      */
     public function index(): View
-    {
-        
-        $posts = Post::latest()->paginate(5);
-        $userName = Auth::user()->name;
-        
+{
+    // Ambil ID pengguna yang sedang login
+    $userId = Auth::id();
 
-        
-        return view('posts.index', compact('posts'), compact('userName') ) ;
-    }
+    // Ambil semua resep yang dibuat oleh pengguna tersebut
+    $posts = Post::where('user_id', $userId)->latest()->paginate(5);
+
+    // Ambil nama pengguna yang sedang login
+    $userName = Auth::user()->name;
+
+    return view('posts.index', compact('posts', 'userName'));
+}
+
 
     
 
@@ -80,7 +84,8 @@ public function resep(): View
             'image'     => $image->hashName(),
             'title'     => $request->title,
             'Bahan'     => $request->Bahan,
-            'Tutorial'  => $request->Tutorial
+            'Tutorial'  => $request->Tutorial,
+            'user_id'   => Auth::id() 
         ]);
 
         
@@ -171,12 +176,18 @@ public function resep(): View
 public function destroy($id): RedirectResponse
 {
     $post = Post::findOrFail($id);
-    
+
+    // Pastikan hanya pemilik yang dapat menghapus
+    if ($post->user_id != Auth::id()) {
+        return redirect()->route('recipe')->with(['error' => 'Anda tidak memiliki akses untuk menghapus postingan ini.']);
+    }
+
+    // Hapus gambar dan postingan
     Storage::delete('public/posts/' . $post->image);
-    
     $post->delete();
 
     return redirect()->route('recipe')->with(['success' => 'Data Berhasil Dihapus!']);
 }
+
 
 }
