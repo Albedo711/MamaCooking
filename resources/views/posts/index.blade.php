@@ -27,6 +27,7 @@
     <div class="meal-item" data-recipe-id="{{ $post->id }}" data-bahan="{{ $post->Bahan }}" data-tutorial="{{ $post->Tutorial }}">
     <img src="{{ asset('/storage/posts/'.$post->image) }}" class="rounded" style="width: 150px">
     <h3>{{ $post->title }}</h3>
+    <h3>{{ $post->category }}</h3>
     <div class="row g-3">
         <button type="button" class="btn btn-outline-primary read-more-btn">Read More</button>
         <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-outline-warning">Edit</a>

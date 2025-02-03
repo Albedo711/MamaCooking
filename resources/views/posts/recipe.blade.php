@@ -13,7 +13,7 @@
             <input type="text" id="searchInput" placeholder="Cari resep">
             <button id="searchButton">Search</button>
         </div>
-        <h1>Explore recipes</h1>
+        <h1>Explore Recipes</h1>
         <button class="login-button" id="loginButton">
            <a href="profile"><img src="{{ asset('storage/' . Auth::user()->profile_photo) }}" alt="Login"></a>
         </button>
@@ -26,6 +26,7 @@
            data-tutorial="{{ $post->Tutorial }}">
         <img src="{{ asset('/storage/posts/'.$post->image) }}" class="rounded" style="width: 150px">
         <h3>{{ $post->title }}</h3>
+        <h3>{{ $post->category }}</h3>
         <button type="button" class="btn btn-outline-primary">Read More</button>
       </div>
     @endforeach

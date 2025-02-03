@@ -66,6 +66,22 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                            <label class="font-weight-bold">KATEGORI</label>
+                            <select class="form-control @error('category') is-invalid @enderror" name="category">
+                                <option value="">Pilih Kategori</option>
+                                <option value="Makanan" {{ old('category') == 'Makanan' ? 'selected' : '' }}>Makanan</option>
+                                <option value="Minuman" {{ old('category') == 'Minuman' ? 'selected' : '' }}>Minuman</option>
+                                <option value="Camilan" {{ old('category') == 'Camilan' ? 'selected' : '' }}>Camilan</option>
+                            </select>
+
+                            @error('category')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
 

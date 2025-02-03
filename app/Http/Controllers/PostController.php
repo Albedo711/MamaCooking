@@ -72,7 +72,8 @@ public function resep(): View
             'image'     => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'title'     => 'required|min:5',
             'Bahan'     => 'required|min:10',
-            'Tutorial'  => 'required|min:10'
+            'Tutorial'  => 'required|min:10',
+            'category'  => 'required|in:Makanan,Minuman,Camilan',
         ]);
 
         
@@ -85,6 +86,7 @@ public function resep(): View
             'title'     => $request->title,
             'Bahan'     => $request->Bahan,
             'Tutorial'  => $request->Tutorial,
+            'category'  => $request->category,
             'user_id'   => Auth::id() 
         ]);
 
@@ -134,7 +136,8 @@ public function resep(): View
         'image'     => 'nullable|image|mimes:jpeg,jpg,png|max:2048', 
         'title'     => 'required|min:5',
         'Bahan'     => 'required|min:10',
-        'Tutorial'  => 'required|min:10'
+        'Tutorial'  => 'required|min:10',
+        'category'  => 'required|in:Makanan,Minuman,Camilan',
     ]);
 
     
@@ -154,14 +157,16 @@ public function resep(): View
             'image'     => $image->hashName(),
             'title'     => $request->title,
             'Bahan'     => $request->Bahan,
-            'Tutorial'  => $request->Tutorial
+            'Tutorial'  => $request->Tutorial,
+            'category'  => $request->category
         ]);
     } else {
         
         $post->update([
             'title'     => $request->title,
             'Bahan'     => $request->Bahan,
-            'Tutorial'  => $request->Tutorial
+            'Tutorial'  => $request->Tutorial,
+            'category'  => $request->category
         ]);
     }
 

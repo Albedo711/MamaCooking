@@ -19,7 +19,8 @@ class Post extends Model
         'title',
         'Bahan',
         'Tutorial',
-        'user_id', // Menambahkan user_id agar bisa diisi
+        'user_id', 
+        'category',
     ];
 
     /**

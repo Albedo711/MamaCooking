@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\HƩp\Controllers\RecipeController; 
+use App\Http\Controllers\RecipeController; 
+use App\Http\Controllers\CategoryController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,8 @@ use App\HƩp\Controllers\RecipeController;
 |
 */
 Route::apiResource('recipes', RecipeController::class); 
+
+Route::apiResource('category', CategoryController::class); 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

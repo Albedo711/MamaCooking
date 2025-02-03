@@ -1,22 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Post;
-use Illuminate\Http\Request;
 
-class RecipeController extends Controller
+use Illuminate\Http\Request;
+use App\Models\Post;
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::select('id','title','category')->get();
         return response()->json([
-        'success' => true,
-        'data' => $posts
-    ]); 
-
+            'success' => true,
+            'data' => $posts
+        ]); 
     }
 
     /**
@@ -34,25 +33,27 @@ class RecipeController extends Controller
     {
         //
     }
-    
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        $posts = Post::find($id);
-
-        if(!$posts){
-            return response()->json(['success'=> false,'message'=> 'Recipe not found'],404);
+        $post = Post::select('id', 'title', 'category')->find($id);
+        
+        if (!$post) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Recipe not found'
+            ], 404);
         }
-
+    
         return response()->json([
             'success' => true,
-            'data' => $posts
-            ]); 
-           
+            'data' => $post
+        ]);
     }
+    
 
     /**
      * Show the form for editing the specified resource.
